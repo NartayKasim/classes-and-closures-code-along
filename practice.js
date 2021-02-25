@@ -16,7 +16,9 @@
 */
 
 function count(num){
-    // Code here
+  return function() {
+    return ++num
+  }  
 };
 
 
@@ -33,21 +35,30 @@ var newClosure = count(5);
   When greetingClosure is invoked with 'Hello', it should return 'Hello Henry'
   'Henry' should be coming from the argument given to the function named greeting
 
-  ------------- CODE TO MAKE WORK ------------
-  const greetingClosure = greeting('Henry');
-  greetingClosure('Hello')
+
+  ------------- CODE TO MAKE WORK ------------*/
+  // const greetingClosure = greeting('Henry');
+  // greetingClosure('Hello')
   
-*/
+  function greeting(str) {
+    let name =  str;
+
+    function greet(hello) {
+      return hello + ' ' + name
+    }
+
+    return greet
+  }
  
-// Code here
+
     
     
 
 
 // After you have created the greeting function above, uncomment the code below, but do not edit it
 
-// const greetingClosure = greeting('Henry');
-// let greet = greetingClosure('Hello')
+const greetingClosure = greeting('Henry');
+let greet = greetingClosure('Hello')
     
 
 
@@ -63,7 +74,27 @@ var newClosure = count(5);
 
 */
 
-// Code here
+function calculatorCreator() {
+  var num = 0;
+
+  return {
+    add(i) {
+      return num += i
+    },
+
+    subtract(i) {
+      return num -= i
+    },
+
+    multiply(i) {
+      return num *= i
+    },
+
+    divide(i){
+      return num /= i
+    }
+  }
+}
 
 
 
@@ -74,7 +105,13 @@ var newClosure = count(5);
   
 */
 
-// Code here
+class Puppy {
+  constructor(happiness, energy, behavior) {
+    this.happiness = happiness;
+    this.energy = energy;
+    this.behavior = behavior;
+  }
+}
 
 
 
@@ -87,7 +124,20 @@ var newClosure = count(5);
 
 */
 
-// Code here
+class Car {
+  constructor(manufacturer, year) {
+    this.manufacturer = manufacturer;
+    this.year = year;
+  }
+
+  displayManufacturer(){
+    return this.manufacturer
+  }
+
+  displayYear() {
+    return this.year;
+  }
+}
 
 
 
@@ -102,4 +152,24 @@ var newClosure = count(5);
 
 */
 
-// Code here
+class Panda {
+  constructor(happiness, energy, behavior) {
+    this.happiness = happiness;
+    this.energy = energy;
+    this.behavior = behavior;
+  }
+
+  getsTreat = function() {
+    return this.happiness += 20
+  }
+
+  takesNap = function() {
+    return this.energy -= 45, this.behavior += 15
+  }
+}
+
+let larry = new Panda(0, 0, 0);
+
+let moe = new Panda(0, 0, 0);
+
+let curly = new Panda(0, 0, 0);
